@@ -12,7 +12,7 @@ public class MainLoginClass {
 	@FindBy(xpath="//input[@id='userid']")
 	WebElement userid;
 	
-	@FindBy(xpath="//input[@id='password']']")
+	@FindBy(xpath="//*[@id=\"password\"]")
 	WebElement password;
 
 	@FindBy(xpath="//button[text()='Login ']")
@@ -26,9 +26,8 @@ public class MainLoginClass {
 	
 	public void EnterCred(String UserId, String Password)
 	{
-
-		userid.sendKeys();
-		password.sendKeys();
+		userid.sendKeys(UserId);
+		password.sendKeys(Password);
 		loginbtn.click();
 	
 	}

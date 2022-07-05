@@ -25,7 +25,7 @@ public class ReadConfig {
 
 	public String getBaseurl()
 	{
-		String value = prop.getProperty("BaseUrl");
+		String value = prop.getProperty("Baseurl");
 			return value;
 		
 	}

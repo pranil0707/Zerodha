@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPinClass {
 
-	WebDriver driver;
+	public WebDriver driver;
 	
 	@FindBy(xpath="//input[@id='pin']")
 	WebElement LoginPin;

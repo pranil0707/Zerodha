@@ -1,5 +1,6 @@
 package com.hybrid.TestClass;
 
+
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
@@ -18,16 +19,17 @@ public class BaseClass {
 	public static WebDriver driver;
 	
 	ReadConfig p = new ReadConfig();
-	String URL = p.getBaseurl();
+	String Url = p.getBaseurl();
 	String Browser = p.getBrowser();
 	String Userid = p.getUserId();
 	String Password = p.getPassword();
 	String Pin = p.getPin();
 	
 	@BeforeSuite
-	public void Setup()
+	public WebDriver Initalize()
 	{
 		
+				
 		switch (Browser.toLowerCase()) {
 		case "chrome":
 						WebDriverManager.chromedriver().setup();
@@ -49,9 +51,13 @@ public class BaseClass {
 			break;
 		}
 		
+		driver.manage().window().maximize();
+		driver.get(Url);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
+		return driver;
 		
 	}
+	
 
 	@AfterSuite
 	public void Tearup() throws InterruptedException
@@ -59,4 +65,6 @@ public class BaseClass {
 		Thread.sleep(5);
 		driver.close();
 	}
+	
+	
 }
